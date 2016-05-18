@@ -1,0 +1,40 @@
+﻿@profile-size: 20px;
+@post-thumb-size: 64px;
+
+body {
+    padding-top: 60px;
+}
+
+.overall {
+    z-index: 999999;
+}
+
+.pull-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.must-wait {
+    .overall;
+    .pull-center;
+    font-size: 25px;
+    color: #fff;
+}
+
+.img-profile {
+    width: @profile-size;
+    height: @profile-size;
+}
+
+.img-post-thumb {
+    width: @post-thumb-size;
+    height: @post-thumb-size;
+}
+
+@media screen and (max-width:767px) {
+    body {
+        padding-top: 120px;
+    }
+}

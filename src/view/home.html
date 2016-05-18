@@ -1,0 +1,99 @@
+﻿<ul class="nav nav-tabs">
+    <li role="presentation" ng-class="ct.setActiveClass('popular')" ng-click="ct.loadFeed('popular')">
+        <a href="javascript:void(0);">POPULAR</a>
+    </li>
+    <li role="presentation" ng-class="ct.setActiveClass('newest')" ng-click="ct.loadFeed('newest')">
+        <a href="javascript:void(0);">NEWEST</a>
+    </li>
+</ul>
+
+<br />
+
+<div class="panel panel-default" ng-repeat="post in ct.posts">
+    <div class="panel-body">
+        <div class="media">
+            <div class="media-left">
+                <a href="#" ng-click="ct.showPostDetails(post.id)" data-toggle="modal" data-target="#myModal" ng-show="ct.hasLoggedUser()">
+                    <img class="media-object img-post-thumb" alt="" ng-src="{{post.thumbnail.image_url}}" data-holder-rendered="true">
+                </a>
+
+                <a href="#" ng-click="ct.showPostDetails(post.id)" ng-hide="ct.hasLoggedUser()">
+                    <img class="media-object img-post-thumb" alt="" ng-src="{{post.thumbnail.image_url}}" data-holder-rendered="true">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{post.name}}</h4>
+                <p>{{post.tagline}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="must-wait" ng-hide="ct.activePost">seeking information, please wait...</div>
+
+    <div class="modal-dialog modal-lg" role="document" ng-show="ct.activePost">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    {{ct.activePost.name}}
+                    <small>{{ct.activePost.tagline}}</small>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img class="img-responsive" alt="" ng-src="{{ct.activePost.screenshot_url['850px']}}" data-holder-rendered="true">
+                    </div>
+                    <div class="col-sm-6">
+                        
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <p><span class="label label-info">Makers</span></p>
+                                    <div class="media-body">
+                                        <img ng-repeat="maker in ct.activePost.makers" class="img-post-thumb img-circle" alt="{{maker.name}}" title="{{maker.name}}" ng-src="{{maker.image_url['96px']}}" data-holder-rendered="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <p><span class="label label-info">Comments</span></p>
+                                    <div class="media-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tr ng-repeat="comment in ct.activePost.comments">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <img class="img-post-thumb img-circle" alt="{{comment.user.name}}" title="{{comment.user.name}}" ng-src="{{comment.user.image_url['96px']}}" data-holder-rendered="true">
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <p><span class="label label-default">{{comment.user.name}}</span> @ <span class="label label-default">{{comment.user.created_at | date:'medium'}}</span></p>
+                                                                <p>{{comment.body}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

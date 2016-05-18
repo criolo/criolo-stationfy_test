@@ -1,0 +1,34 @@
+﻿body {
+  padding-top: 60px;
+}
+.overall {
+  z-index: 999999;
+}
+.pull-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.must-wait {
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: #fff;
+}
+.img-profile {
+  width: 20px;
+  height: 20px;
+}
+.img-post-thumb {
+  width: 64px;
+  height: 64px;
+}
+@media screen and (max-width: 767px) {
+  body {
+    padding-top: 120px;
+  }
+}

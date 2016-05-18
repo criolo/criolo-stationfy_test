@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Quest, a Product Hunt clone for Stationfy</title>
+    <!-- Bootstrap -->
+    <link href="/content/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/content/css/product-quest.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <base href="/" />
+</head>
+
+<body ng-app="productQuest">
+
+    <jarvis></jarvis>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:void(0);">Product Quest</a>
+            </div>
+            <user-menu></user-menu>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <script src="/content/libs/jquery/js/jquery.min.js"></script>
+    <script src="/content/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/content/libs/angularjs/js/angular.min.js"></script>
+    <script src="/content/libs/ocLazyLoad/js/ocLazyLoad.min.js"></script>
+    <script src="/content/libs/angularjs/js/angular-ui-router.min.js"></script>
+    <script src="/content/js/product-quest.js"></script>
+    <script src="/content/js/product-quest.services.js"></script>
+    <script src="/content/js/product-quest.config.js"></script>
+    <script src="/content/js/product-quest.directives.js"></script>
+</body>
+
+</html>
