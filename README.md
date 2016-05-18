@@ -1,4 +1,4 @@
-# criolo-stationfy_test
+# stationfy_test
 A ideia é fazer um mini-clone do Product Hunt...
 
 
